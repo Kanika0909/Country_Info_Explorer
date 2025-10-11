@@ -1,0 +1,60 @@
+# ==========================
+# Python / Flask
+# ==========================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# Flask cache / instance folders
+instance/
+*.sqlite3
+
+# Logs
+*.log
+
+# ==========================
+# Node / React
+# ==========================
+
+# Dependencies
+node_modules/
+
+# Production build
+build/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor folders
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# MacOS
+.DS_Store
+
+# Coverage folder
+coverage/
+
+# Temporary files
+*.tmp
+*.swp

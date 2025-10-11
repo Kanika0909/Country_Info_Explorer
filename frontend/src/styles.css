@@ -1,0 +1,234 @@
+:root {
+  --bg: #f3f4f6;
+  --card: #ffffff;
+  --text: #111827;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --accent: #f59e0b;
+  --gradient: linear-gradient(135deg, #4f46e5, #3b82f6);
+}
+
+[data-theme='dark'] {
+  --bg: #0b1220;
+  --card: #0f1724;
+  --text: #e6eef8;
+  --shadow: rgba(255, 255, 255, 0.05);
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --accent: #facc15;
+  --gradient: linear-gradient(135deg, #1e3a8a, #3b82f6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header with gradient background */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: var(--gradient);
+  color: white;
+  box-shadow: 0 4px 12px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Main layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 32px;
+}
+
+.footer {
+  text-align: center;
+  padding: 16px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Search row */
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.search-row input,
+.search-row select {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background: var(--card);
+  color: var(--text);
+  flex: 1;
+  min-width: 180px;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.search-row input:focus,
+.search-row select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary-hover);
+}
+
+button {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #d97706;
+  transform: translateY(-2px);
+}
+
+/* Grid of country cards */
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* Country card styles */
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 18px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--gradient);
+  opacity: 0.08;
+  transform: rotate(25deg);
+  transition: opacity 0.3s;
+}
+
+.card:hover::before {
+  opacity: 0.15;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px var(--shadow);
+}
+
+.card h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card p {
+  margin: 2px 0;
+  font-size: 0.9rem;
+}
+
+/* Country detail page */
+.country-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--card);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.country-detail img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.country-detail h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.country-detail p {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+.country-detail strong {
+  color: var(--primary-hover);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    padding: 16px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
