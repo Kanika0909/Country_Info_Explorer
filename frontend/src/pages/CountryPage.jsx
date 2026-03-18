@@ -11,7 +11,9 @@ export default function CountryPage() {
   useEffect(() => {
     const fetchCountry = async () => {
       try {
-        const resp = await axios.get(`/api/countries/${code}`);
+        const resp = await axios.get(
+          `https://country-info-explorer-6wvf.onrender.com/api/countries/${code}`,
+        );
         setCountry(resp.data);
       } catch (err) {
         console.error(err);

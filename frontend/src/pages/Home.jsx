@@ -15,7 +15,10 @@ export default function Home() {
       const params = {};
       if (query) params.q = query;
       if (region) params.region = region;
-      const resp = await axios.get("/api/countries", { params });
+      const resp = await axios.get(
+        "https://country-info-explorer-6wvf.onrender.com/api/countries",
+        { params },
+      );
       setCountries(resp.data);
     } catch (err) {
       console.error(err);
